@@ -10,6 +10,7 @@ parser.add_argument('-C', type=str, metavar='max_cov', default='10000', required
 parser.add_argument('-q', type=str, metavar='min_qual', default='0', required=False, help='-C (or --max-coverage) value, where value is the maximum coverage required for a site to be used in the analyzes ; default is 10000.')
 parser.add_argument('-o', type=str, metavar='Output_Prefix', required=True, help='should be absolute path to output directory plus population name.')
 parser.add_argument('-nc', type=str, metavar='numberOfCores', required=True, help=' ')
+parser.add_argument('-t', type=str, metavar='startingTheta', default='0.005', required=False, help=' ')
 parser.add_argument('-mem', type=str, metavar='memoryRequested', required=True, help=' ')
 parser.add_argument('-P', type=str, metavar='Print?', default='false', required=False, help=' ')
 
@@ -40,9 +41,9 @@ for i, file in enumerate(file_list):
                   '#SBATCH -t 2-00:00\n' +
                   '#SBATCH --mem=' + str(args.mem) + '\n' +
                   'source python-2.7.12\n' +
-                  'virtualenv -p /nbi/software/testing/bin/python-2.7.12'
+                  'virtualenv -p /nbi/software/testing/bin/python-2.7.12\n'
                   'source env/bin/activate\n' +
-                  'python /nbi/Research-Groups/JIC/Levi-Yant/Patrick/code/pool-hmm/1.4.3/pool-hmm.py -f ' + args.p + prefix + ' -e illumina -S -n ' + n[pop] + ' -c ' + args.c + ' -C ' + args.C + ' -q ' + args.q + '\n')
+                  'python /nbi/Research-Groups/JIC/Levi-Yant/Patrick/code/pool-hmm/1.4.3/pool-hmm.py -f ' + args.p + prefix + ' -e illumina -S -n ' + n[pop] + ' -c ' + args.c + ' -t ' + args.t + ' -C ' + args.C + ' -q ' + args.q + '\n')
     shfile3.close()
 
     if args.P == 'false':
