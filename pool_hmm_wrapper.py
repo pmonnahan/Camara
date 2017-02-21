@@ -49,7 +49,7 @@ for i, file in enumerate(file_list):
         p = subprocess.Popen(cmd, shell=True)
         sts = os.waitpid(p.pid, 0)[1]
     elif args.P == 'true':
-        file = open(file + '.sh', 'r')
-        data = file.read()
+        file1 = open(file + '.sh', 'r')
+        data = file1.read()
         print(data)
     os.remove(file + '.sh')
