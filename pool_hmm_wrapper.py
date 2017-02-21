@@ -39,7 +39,8 @@ for i, file in enumerate(file_list):
                   '#SBATCH -n ' + str(args.nc) + '\n' +
                   '#SBATCH -t 2-00:00\n' +
                   '#SBATCH --mem=' + str(args.mem) + '\n' +
-                  'source python-2.7.5\n' +
+                  'source python-2.7.12\n' +
+                  'virtualenv -p /nbi/software/testing/bin/python-2.7.12'
                   'source env/bin/activate\n' +
                   'python /nbi/Research-Groups/JIC/Levi-Yant/Patrick/code/pool-hmm/1.4.3/pool-hmm.py -f ' + args.p + prefix + ' -e illumina -S -n ' + n[pop] + ' -c ' + args.c + ' -C ' + args.C + ' -q ' + args.q + '\n')
     shfile3.close()
