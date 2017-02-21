@@ -45,10 +45,11 @@ for i, file in enumerate(file_list):
     shfile3.close()
 
     if args.P == 'false':
-        cmd = ('sbatch LD.sh')
+        cmd = ('sbatch ' + file + '.sh')
         p = subprocess.Popen(cmd, shell=True)
         sts = os.waitpid(p.pid, 0)[1]
     elif args.P == 'true':
-        file = open('LD.sh', 'r')
+        file = open(file + '.sh', 'r')
         data = file.read()
         print(data)
+    os.remove(file + '.sh')
