@@ -36,9 +36,9 @@ for i, file in enumerate(file_list):
                   '#SBATCH -J ' + file + '.poolhmm.sh' + '\n' +
                   '#SBATCH -e /nbi/Research-Groups/JIC/Levi-Yant/Patrick/OandE/' + file + '.poolhmm.err' + '\n' +
                   '#SBATCH -o /nbi/Research-Groups/JIC/Levi-Yant/Patrick/OandE/' + file + '.poolhmm.out' + '\n' +
-                  '#SBATCH -p nbi-medium\n' +
+                  '#SBATCH -p nbi-long\n' +
                   '#SBATCH -n ' + str(args.nc) + '\n' +
-                  '#SBATCH -t 2-00:00\n' +
+                  '#SBATCH -t 7-00:00\n' +
                   '#SBATCH --mem=' + str(args.mem) + '\n' +
                   'source python-2.7.12\n' +
                   'virtualenv -p /nbi/software/testing/bin/python-2.7.12\n'
